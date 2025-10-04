@@ -1,0 +1,108 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "employee_id": {
+      "type": "string",
+      "description": "ID of the employee who submitted"
+    },
+    "employee_name": {
+      "type": "string",
+      "description": "Name of the employee"
+    },
+    "company_id": {
+      "type": "string",
+      "description": "Company ID"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Expense amount"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code"
+    },
+    "converted_amount": {
+      "type": "number",
+      "description": "Amount in company currency"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "travel",
+        "meals",
+        "accommodation",
+        "office_supplies",
+        "software",
+        "training",
+        "entertainment",
+        "other"
+      ],
+      "description": "Expense category"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expense date"
+    },
+    "description": {
+      "type": "string",
+      "description": "Expense description"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "Receipt image URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    },
+    "approval_history": {
+      "type": "array",
+      "description": "Approval history",
+      "items": {
+        "type": "object",
+        "properties": {
+          "approver_id": {
+            "type": "string"
+          },
+          "approver_name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "rejected"
+            ]
+          },
+          "comment": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "rejection_reason": {
+      "type": "string",
+      "description": "Reason for rejection"
+    }
+  },
+  "required": [
+    "amount",
+    "currency",
+    "category",
+    "date",
+    "description"
+  ]
+}
