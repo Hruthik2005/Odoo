@@ -1,0 +1,47 @@
+name: ApprovalRule
+type: object
+properties:
+  company_id:
+    type: string
+    description: Company ID
+  rule_name:
+    type: string
+    description: Name of the rule
+  rule_type:
+    type: string
+    enum:
+      - sequential
+      - percentage
+      - specific_approver
+      - hybrid
+    description: Type of approval rule
+  workflow_steps:
+    type: array
+    description: Sequential approval steps
+    items:
+      type: object
+      properties:
+        step_number:
+          type: number
+        role:
+          type: string
+        approver_id:
+          type: string
+  percentage_threshold:
+    type: number
+    description: Percentage of approvals required
+  specific_approvers:
+    type: array
+    description: List of specific approver IDs
+    items:
+      type: string
+  amount_threshold:
+    type: number
+    description: Amount threshold for this rule
+  is_active:
+    type: boolean
+    default: true
+    description: Whether rule is active
+required:
+  - rule_name
+  - rule_type
