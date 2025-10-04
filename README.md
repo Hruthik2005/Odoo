@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# 🧾 Expense Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A modern, intelligent, and automated solution to streamline company expense management.
+> Say goodbye to tedious manual expense processes, approval bottlenecks, and lack of transparency.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+Companies often struggle with **manual expense reimbursement processes** that are time-consuming, error-prone, and lack transparency.
+This system provides a **flexible, role-based expense management platform** with multi-level approval workflows and conditional logic for approvals.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Key Goals:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Automate expense submissions and approvals
+* Reduce errors and approval delays
+* Provide complete visibility for employees, managers, and admins
+* Support conditional approval flows and OCR-based receipt scanning
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Core Features
 
-### `npm run build`
+### Authentication & User Management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* On **first signup/login**, a new company is auto-created with the country’s currency set.
+* An **Admin account** is automatically created.
+* **Admin Permissions:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  * Create Employees & Managers
+  * Assign/change roles (Employee, Manager)
+  * Define employee-manager relationships
+  * Configure approval rules
+  * Override approvals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### Expense Submission (Employee Role)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Employees can submit **expense claims** including:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  * Amount (multi-currency supported)
+  * Category
+  * Description
+  * Date
+* Employees can **view their expense history**, including approved and rejected expenses
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Approval Workflow (Manager/Admin Role)
 
-## Learn More
+* Conditional approvals supported:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  * **Percentage Rule:** Approve if a certain % of approvers approve (e.g., 60%)
+  * **Specific Approver Rule:** Approve if a designated approver approves (e.g., CFO)
+  * **Hybrid Rule:** Combine both conditions (e.g., 60% OR CFO approves)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Workflow Example:**
 
-### Code Splitting
+1. Step 1 → Manager
+2. Step 2 → Finance
+3. Step 3 → Director
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> Expenses move to the next approver only after the current one approves/rejects.
 
-### Analyzing the Bundle Size
+**Manager Permissions:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* View expenses pending approval
+* Approve/reject with comments
+* Escalate expenses based on rules
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Additional Features
 
-### Advanced Configuration
+#### OCR for Receipts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Employees can scan receipts and the system automatically reads:
 
-### Deployment
+  * Amount
+  * Date
+  * Description
+  * Expense type
+  * Vendor/restaurant name
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### APIs Integrated
 
-### `npm run build` fails to minify
+* **Country & Currency:** [REST Countries API](https://restcountries.com/v3.1/all?fields=name,currencies)
+* **Currency Conversion:** [Exchange Rate API](https://api.exchangerate-api.com/v4/latest/{BASE_CURRENCY})
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 👥 Role & Permissions
+
+| Role         | Permissions                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------- |
+| **Admin**    | Create company, manage users, set roles, configure approval rules, view all expenses, override approvals |
+| **Manager**  | Approve/reject expenses, view team expenses, escalate as per rules                                       |
+| **Employee** | Submit expenses, view their own expenses, check approval status                                          |
+
+---
+
+## 💻 Tech Stack
+
+* **Frontend:** React.js (Create React App)
+* **Backend:** Node.js / Express
+* **Database:** MongoDB / PostgreSQL / MySQL
+* **OCR Integration:** Tesseract.js or Google Vision API
+* **APIs:** REST Countries, Exchange Rate API
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+* Node.js v16+
+* npm v8+
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/expense-management.git
+cd expense-management
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app running in your browser.
+
+---
+
+### Available Scripts
+
+| Command         | Description                          |
+| --------------- | ------------------------------------ |
+| `npm start`     | Run the app in development mode      |
+| `npm test`      | Launch the test runner               |
+| `npm run build` | Build the app for production         |
+| `npm run eject` | Eject CRA config (one-way operation) |
+
+---
+
+## 📷 Mockup & UI Design
+
+View the project mockup here:
+[Excalidraw Mockup](https://link.excalidraw.com/l/65VNwvy7c4X/4WSLZDTrhkA)
+
+---
+
+## 🌟 Why This Project?
+
+* Reduces human errors and speeds up reimbursements
+* Transparent approval workflows
+* Flexible rules for multiple approvers
+* Smart receipt processing with OCR
+* Multi-currency support with automatic conversions
+
+---
+
+## 📝 Future Enhancements
+
+* Mobile app version
+* AI-based fraud detection in expenses
+* Analytics & reporting dashboards
+* Slack/Email integration for notifications
+
+---
+
+## 🏆 License
+
+This project is licensed under the MIT License.
