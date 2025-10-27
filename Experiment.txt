@@ -1,0 +1,86 @@
+Program-1
+1] create a folder in a Desktop
+2] Inside that folder open the git bash
+3] git init
+4] git config --global user.name "username"
+5] git config --global user.email "email"
+6] git config --global --list (it will Display user name and password If
+not go to credential Manager windows credentials remove the other user id
+present there)
+7] git add .
+8] git status
+9] git commit -m "v1" (keyword to save the code) message version. Create
+versions with editing in the Notepad
+10] git log || show all the version with commit id.
+11] git reset --hard "commit hash code" paste it here It will show you the
+data of the version which you have stored at particular version data
+12] git push --set -u "repo url" -f
+Program-2
+1] create a folder
+2] open that folder in vs code
+3] Create a new file
+4] Inside the file Print("Mysore")
+5] open and save it in a .py (Python)
+6] open a new terminal
+7] commands to follow
+8] git init
+9] git status
+10] git add .
+11] git commit -m "test.py added"
+12] git branch host1
+13] git branch
+14] git branch host2
+15] git branch
+16] git checkout host1 (Switched to host1)
+17] add or delete one line in vs code
+18]Print("VVCE")
+19] git add .
+20] git commit -m "VVCE is added"
+21] git checkout host2 ("switched to host 2")
+22] git add .
+23] again the change or add the code print("vvce!")
+24] git add .
+25] git commit -m "vvce is added" (vvce is added)
+26] git checkout master
+27] git merge host1
+28] git merge host2
+29] git diff
+30] git clone "repo url" main
+Program 3 (B1)
+JAVA
+1] Create a folder
+2] open in VS code
+3] Create a new file Dockerfile
+4] Inside Dockerfile
+FROM openjdk
+WORKDIR /app
+COPY ./app
+RUN javac Sample.java
+CMD ["java","Sample"]
+5] Then create a Java file as Sample.java
+Public class Sample {
+Public Static void main(String[] args) {
+System.out.println("Test");
+}
+}
+6] Then in CMD: Type
+javac Sample.java
+java Sample.java
+7] docker build -t name1
+8] in docker desktop got to images there you will find name1 click on run
+-> the java program will run
+HTML
+9] Name The the Docker and the Java file replaced with the HTML
+10] Docker file:
+FROM httpd:latest
+COPY index.html /usr/local/apache2/htdocs/
+11] Then create a HTML file
+12] go to the Terminal
+docker build -t name2
+docker run -d -P 8001:80 name2
+Program 4 (B2)
+1] Continue with the B1 program and then add the two Comand in the
+terminal
+docker tag hi: latest username/hi:v1
+docker tag push username/hi:v1
+docker pull username/dzivi
